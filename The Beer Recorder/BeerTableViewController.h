@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Beer.h"
+#import "BeerCell.h"
 #import "BeerPageViewController.h"
 #import "FMDBDataAccess.h"
 
-@interface BeerTableViewController : UITableViewController
+@interface BeerTableViewController : UITableViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) NSArray * beers;
 @property (strong, nonatomic) NSArray * beerNames;
 @property (strong, nonatomic) NSArray * beerPictures;
 @property (strong, nonatomic) Beer * selectedBeer;
+@property (nonatomic) int selectedRow;
+
+-(IBAction)addTap:(id)sender;
 
 @end

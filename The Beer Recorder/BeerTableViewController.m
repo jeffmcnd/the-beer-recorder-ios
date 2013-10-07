@@ -19,45 +19,39 @@
     if (self) {
         // Custom initialization
     }
-    [self getBeers];
     
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    NSMutableArray * mutableBeerNames = [[NSMutableArray alloc] init];
-    NSMutableArray * mutableBeerPictures = [[NSMutableArray alloc] init];
-    
-    for(int i = 0; i < 7; i++) {
-        [mutableBeerNames addObject:@"Blue Buck"];
-        [mutableBeerPictures addObject:[UIImage imageNamed:@"blue_buck.jpg"]];
-    }
-    
-    _beerNames = [[NSArray alloc] initWithArray:mutableBeerNames];
-    _beerPictures = [[NSArray alloc] initWithArray:mutableBeerPictures];
     
     FMDBDataAccess * db = [[FMDBDataAccess alloc] init];
     
     _beers = [[NSArray alloc] initWithArray:[db getBeers]];
-    
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void)getBeers {
-    NSMutableArray * mutableBeerNames = [[NSMutableArray alloc] init];
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     NSMutableArray * mutableBeerPictures = [[NSMutableArray alloc] init];
     
-    for(int i = 0; i < 7; i++) {
-        [mutableBeerNames addObject:@"Blue Buck"];
-        [mutableBeerPictures addObject:[UIImage imageNamed:@"blue_buck.jpg"]];
+    for(int i = 0; i < [_beers count]; i++) {
+        UIImage * img = [UIImage imageWithContentsOfFile:[DOC_DIR stringByAppendingPathComponent:[NSString stringWithFormat:@"beer%d", ((Beer *)_beers[i]).beerId]]];
+        if(img == nil) img = [UIImage imageNamed:@"blue_buck.jpg"];
+        
+        [mutableBeerPictures addObject:img];
     }
     
-    _beerNames = [[NSArray alloc] initWithArray:mutableBeerNames];
     _beerPictures = [[NSArray alloc] initWithArray:mutableBeerPictures];
     
-    
+    [self.tableView reloadData];
+}
+
+-(IBAction)addTap:(id)sender {
+    UIAlertView * newBeerAV = [[UIAlertView alloc] initWithTitle:@"Name?" message:@"You must have a name for the beer in order to add it." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add",nil];
+    [newBeerAV setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [newBeerAV show];
 }
 
 #pragma mark - Table view data source
@@ -73,74 +67,95 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * CellIdentifier = @"BeerCell";
     
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    BeerCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Beer * beer = _beers[indexPath.row];
     
-    [cell.textLabel setText:beer.beerName];
-    [cell.imageView setImage:_beerPictures[indexPath.row]];
+    [cell.beerName setText:beer.beerName];
+    [cell.picture setImage:_beerPictures[indexPath.row]];
     
     return cell;
 }
 
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 70.0f;
 }
-
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _selectedBeer = _beers[indexPath.row];
-    [self performSegueWithIdentifier:@"BeerPageViewController" sender:self];
+    _selectedRow = indexPath.row;
+    [self performSegueWithIdentifier:@"BeerPageViewController" sender:_beerPictures[_selectedRow]];
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        Beer * beer = _beers[indexPath.row];
+        
+        FMDBDataAccess * db = [[FMDBDataAccess alloc] init];
+        
+        if([db deleteBeer:beer]) {
+            _beers = [db getBeers];
+            [self.tableView reloadData];
+        }
+    }
 }
 
 #pragma mark Segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"BeerPageViewController"]) {
-        BeerPageViewController * bpvc = segue.destinationViewController;
-        /*
-         Set up all the info necessary.
-         */
-        [bpvc setPicture:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"no_beer"]]];
-        [bpvc.brewerName setText:_selectedBeer.brewerName];
-        [bpvc.appearanceSlider setValue:_selectedBeer.appearance];
-        [bpvc.aromaSlider setValue:_selectedBeer.aroma];
-        [bpvc.mouthFeelSlider setValue:_selectedBeer.mouthFeel];
-        [bpvc.maltHopSlider setValue:_selectedBeer.maltHop];
-        [bpvc.flavourSlider setValue:_selectedBeer.flavour];
-        [bpvc.overallSlider setValue:_selectedBeer.overall];
-        [bpvc.commentTF setText:_selectedBeer.comment];
+        BeerPageViewController * bpvc = (BeerPageViewController *)segue.destinationViewController;
+        
+        [bpvc setupBeer:_selectedBeer];
+        [bpvc.picture setImage:_beerPictures[_selectedRow]];
     }
 }
 
+#pragma mark UIAlertView Delegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    Beer * beer = [[Beer alloc] init];
+    switch(buttonIndex) {
+        case 0:
+            break;
+        case 1: {
+            /*
+             Add item to database with name.
+             */
+            beer.beerName = [[alertView textFieldAtIndex:0] text];
+            beer.brewerName = @"";
+            beer.appearance = 2.5;
+            beer.aroma = 2.5;
+            beer.mouthFeel = 2.5;
+            beer.maltHop = 2.5;
+            beer.flavour = 2.5;
+            beer.overall = 2.5;
+            beer.comment = @"";
+            
+            FMDBDataAccess * db = [[FMDBDataAccess alloc] init];
+            
+            [db insertBeer:beer];
+            
+            NSMutableArray * beers = [db getBeers];
+            _beers = [[NSArray alloc] initWithArray:beers];
+            
+            NSMutableArray * mutableBeerPictures = [[NSMutableArray alloc] initWithArray:_beerPictures];
+            
+            [mutableBeerPictures addObject:[UIImage imageNamed:@"blue_buck.jpg"]];
+            
+            _beerPictures = [[NSArray alloc] initWithArray:mutableBeerPictures];
+            
+            [self.tableView reloadData];
+            break;
+        }
+        default:
+            break;
+    }
+}
 @end

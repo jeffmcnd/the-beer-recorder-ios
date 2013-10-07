@@ -17,5 +17,6 @@
 -(NSMutableArray *)getBeers;
 -(BOOL)insertBeer:(Beer *)beer;
 -(BOOL)updateBeer:(Beer *)beer;
+-(BOOL)deleteBeer:(Beer *)beer;
 
 @end

@@ -17,6 +17,8 @@
 		008D0CAC17F88C500045BDA6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 008D0CAB17F88C500045BDA6 /* Default@2x.png */; };
 		008D0CAE17F88C500045BDA6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 008D0CAD17F88C500045BDA6 /* Default-568h@2x.png */; };
 		008D0CB117F88C500045BDA6 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008D0CAF17F88C500045BDA6 /* MainStoryboard_iPhone.storyboard */; };
+		00BE698918024E98007A2740 /* pint_glass_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 00BE698818024E98007A2740 /* pint_glass_114.png */; };
+		00BE698B18024EC8007A2740 /* pint_glass_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 00BE698A18024EC8007A2740 /* pint_glass_57.png */; };
 		00CB5C0017F88E5100587EAB /* BeerPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5BFF17F88E5100587EAB /* BeerPageViewController.m */; };
 		00CB5C0317F88E6400587EAB /* BeerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5C0217F88E6400587EAB /* BeerTableViewController.m */; };
 		00CB5C0717F891A000587EAB /* Beer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5C0617F891A000587EAB /* Beer.m */; };
@@ -27,9 +29,23 @@
 		00CB5C2117F89EEF00587EAB /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5C1717F89EEF00587EAB /* FMDatabase.m */; };
 		00CB5C2617F89EEF00587EAB /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5C2017F89EEF00587EAB /* FMResultSet.m */; };
 		00CB5C2817F8A04F00587EAB /* no_beer.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB5C2717F8A04F00587EAB /* no_beer.png */; };
-		00CB5C2D17F8A30D00587EAB /* beer.db in Resources */ = {isa = PBXBuildFile; fileRef = 00CB5C2C17F8A30D00587EAB /* beer.db */; };
 		00CB5C2F17F8A39800587EAB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CB5C2E17F8A39700587EAB /* libsqlite3.dylib */; };
 		00CB5C3317F8AA8B00587EAB /* FMDBDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5C3217F8AA8B00587EAB /* FMDBDataAccess.m */; };
+		00CB5C3517F8C7D300587EAB /* beer.db in Resources */ = {isa = PBXBuildFile; fileRef = 00CB5C3417F8C7D300587EAB /* beer.db */; };
+		00CB5C4317F8D51300587EAB /* GKCropBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5C3817F8D51300587EAB /* GKCropBorderView.m */; };
+		00CB5C4417F8D51300587EAB /* GKImageCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5C3A17F8D51300587EAB /* GKImageCropOverlayView.m */; };
+		00CB5C4517F8D51300587EAB /* GKImageCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5C3C17F8D51300587EAB /* GKImageCropView.m */; };
+		00CB5C4617F8D51300587EAB /* GKImageCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5C3E17F8D51300587EAB /* GKImageCropViewController.m */; };
+		00CB5C4717F8D51300587EAB /* GKImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5C4017F8D51300587EAB /* GKImagePicker.m */; };
+		00CB5C4817F8D51300587EAB /* GKResizeableCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB5C4217F8D51300587EAB /* GKResizeableCropOverlayView.m */; };
+		00CB5C5317F8D76900587EAB /* PLCameraSheetButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB5C4B17F8D76900587EAB /* PLCameraSheetButton.png */; };
+		00CB5C5417F8D76900587EAB /* PLCameraSheetButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB5C4C17F8D76900587EAB /* PLCameraSheetButton@2x.png */; };
+		00CB5C5517F8D76900587EAB /* PLCameraSheetButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB5C4D17F8D76900587EAB /* PLCameraSheetButtonPressed.png */; };
+		00CB5C5617F8D76900587EAB /* PLCameraSheetButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB5C4E17F8D76900587EAB /* PLCameraSheetButtonPressed@2x.png */; };
+		00CB5C5717F8D76900587EAB /* PLCameraSheetDoneButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB5C4F17F8D76900587EAB /* PLCameraSheetDoneButton.png */; };
+		00CB5C5817F8D76900587EAB /* PLCameraSheetDoneButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB5C5017F8D76900587EAB /* PLCameraSheetDoneButton@2x.png */; };
+		00CB5C5917F8D76900587EAB /* PLCameraSheetDoneButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB5C5117F8D76900587EAB /* PLCameraSheetDoneButtonPressed.png */; };
+		00CB5C5A17F8D76900587EAB /* PLCameraSheetDoneButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB5C5217F8D76900587EAB /* PLCameraSheetDoneButtonPressed@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +63,8 @@
 		008D0CAB17F88C500045BDA6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		008D0CAD17F88C500045BDA6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		008D0CB017F88C500045BDA6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		00BE698818024E98007A2740 /* pint_glass_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pint_glass_114.png; sourceTree = "<group>"; };
+		00BE698A18024EC8007A2740 /* pint_glass_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pint_glass_57.png; sourceTree = "<group>"; };
 		00CB5BFE17F88E5100587EAB /* BeerPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerPageViewController.h; sourceTree = "<group>"; };
 		00CB5BFF17F88E5100587EAB /* BeerPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerPageViewController.m; sourceTree = "<group>"; };
 		00CB5C0117F88E6400587EAB /* BeerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerTableViewController.h; sourceTree = "<group>"; };
@@ -64,11 +82,31 @@
 		00CB5C1F17F89EEF00587EAB /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		00CB5C2017F89EEF00587EAB /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		00CB5C2717F8A04F00587EAB /* no_beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_beer.png; sourceTree = "<group>"; };
-		00CB5C2C17F8A30D00587EAB /* beer.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = beer.db; sourceTree = "<group>"; };
 		00CB5C2E17F8A39700587EAB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		00CB5C3017F8A4AD00587EAB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		00CB5C3117F8AA8B00587EAB /* FMDBDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBDataAccess.h; sourceTree = "<group>"; };
 		00CB5C3217F8AA8B00587EAB /* FMDBDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBDataAccess.m; sourceTree = "<group>"; };
+		00CB5C3417F8C7D300587EAB /* beer.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = beer.db; sourceTree = "<group>"; };
+		00CB5C3717F8D51300587EAB /* GKCropBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCropBorderView.h; sourceTree = "<group>"; };
+		00CB5C3817F8D51300587EAB /* GKCropBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCropBorderView.m; sourceTree = "<group>"; };
+		00CB5C3917F8D51300587EAB /* GKImageCropOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKImageCropOverlayView.h; sourceTree = "<group>"; };
+		00CB5C3A17F8D51300587EAB /* GKImageCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKImageCropOverlayView.m; sourceTree = "<group>"; };
+		00CB5C3B17F8D51300587EAB /* GKImageCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKImageCropView.h; sourceTree = "<group>"; };
+		00CB5C3C17F8D51300587EAB /* GKImageCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKImageCropView.m; sourceTree = "<group>"; };
+		00CB5C3D17F8D51300587EAB /* GKImageCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKImageCropViewController.h; sourceTree = "<group>"; };
+		00CB5C3E17F8D51300587EAB /* GKImageCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKImageCropViewController.m; sourceTree = "<group>"; };
+		00CB5C3F17F8D51300587EAB /* GKImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKImagePicker.h; sourceTree = "<group>"; };
+		00CB5C4017F8D51300587EAB /* GKImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKImagePicker.m; sourceTree = "<group>"; };
+		00CB5C4117F8D51300587EAB /* GKResizeableCropOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKResizeableCropOverlayView.h; sourceTree = "<group>"; };
+		00CB5C4217F8D51300587EAB /* GKResizeableCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKResizeableCropOverlayView.m; sourceTree = "<group>"; };
+		00CB5C4B17F8D76900587EAB /* PLCameraSheetButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PLCameraSheetButton.png; sourceTree = "<group>"; };
+		00CB5C4C17F8D76900587EAB /* PLCameraSheetButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PLCameraSheetButton@2x.png"; sourceTree = "<group>"; };
+		00CB5C4D17F8D76900587EAB /* PLCameraSheetButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PLCameraSheetButtonPressed.png; sourceTree = "<group>"; };
+		00CB5C4E17F8D76900587EAB /* PLCameraSheetButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PLCameraSheetButtonPressed@2x.png"; sourceTree = "<group>"; };
+		00CB5C4F17F8D76900587EAB /* PLCameraSheetDoneButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PLCameraSheetDoneButton.png; sourceTree = "<group>"; };
+		00CB5C5017F8D76900587EAB /* PLCameraSheetDoneButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PLCameraSheetDoneButton@2x.png"; sourceTree = "<group>"; };
+		00CB5C5117F8D76900587EAB /* PLCameraSheetDoneButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PLCameraSheetDoneButtonPressed.png; sourceTree = "<group>"; };
+		00CB5C5217F8D76900587EAB /* PLCameraSheetDoneButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PLCameraSheetDoneButtonPressed@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +127,11 @@
 		008D0C8B17F88C500045BDA6 = {
 			isa = PBXGroup;
 			children = (
-				00CB5C2E17F8A39700587EAB /* libsqlite3.dylib */,
+				00BE698A18024EC8007A2740 /* pint_glass_57.png */,
+				00BE698818024E98007A2740 /* pint_glass_114.png */,
 				008D0C9D17F88C500045BDA6 /* The Beer Recorder */,
 				00CB5C1517F89EE300587EAB /* FMDB */,
+				00CB5C3617F8D50600587EAB /* GKImagePicker */,
 				00CB5C0B17F8963D00587EAB /* Resources */,
 				008D0C9E17F88C500045BDA6 /* Supporting Files */,
 				008D0C9617F88C500045BDA6 /* Frameworks */,
@@ -110,6 +150,7 @@
 		008D0C9617F88C500045BDA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00CB5C2E17F8A39700587EAB /* libsqlite3.dylib */,
 				008D0C9717F88C500045BDA6 /* UIKit.framework */,
 				008D0C9917F88C500045BDA6 /* Foundation.framework */,
 				008D0C9B17F88C500045BDA6 /* CoreGraphics.framework */,
@@ -214,9 +255,53 @@
 		00CB5C2917F8A2CF00587EAB /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				00CB5C2C17F8A30D00587EAB /* beer.db */,
+				00CB5C3417F8C7D300587EAB /* beer.db */,
 			);
 			name = Database;
+			sourceTree = "<group>";
+		};
+		00CB5C3617F8D50600587EAB /* GKImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				00CB5C4A17F8D76200587EAB /* Classes */,
+				00CB5C4917F8D75D00587EAB /* Images */,
+			);
+			name = GKImagePicker;
+			path = "The Beer Recorder";
+			sourceTree = "<group>";
+		};
+		00CB5C4917F8D75D00587EAB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				00CB5C4B17F8D76900587EAB /* PLCameraSheetButton.png */,
+				00CB5C4C17F8D76900587EAB /* PLCameraSheetButton@2x.png */,
+				00CB5C4D17F8D76900587EAB /* PLCameraSheetButtonPressed.png */,
+				00CB5C4E17F8D76900587EAB /* PLCameraSheetButtonPressed@2x.png */,
+				00CB5C4F17F8D76900587EAB /* PLCameraSheetDoneButton.png */,
+				00CB5C5017F8D76900587EAB /* PLCameraSheetDoneButton@2x.png */,
+				00CB5C5117F8D76900587EAB /* PLCameraSheetDoneButtonPressed.png */,
+				00CB5C5217F8D76900587EAB /* PLCameraSheetDoneButtonPressed@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		00CB5C4A17F8D76200587EAB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				00CB5C3717F8D51300587EAB /* GKCropBorderView.h */,
+				00CB5C3817F8D51300587EAB /* GKCropBorderView.m */,
+				00CB5C3917F8D51300587EAB /* GKImageCropOverlayView.h */,
+				00CB5C3A17F8D51300587EAB /* GKImageCropOverlayView.m */,
+				00CB5C3B17F8D51300587EAB /* GKImageCropView.h */,
+				00CB5C3C17F8D51300587EAB /* GKImageCropView.m */,
+				00CB5C3D17F8D51300587EAB /* GKImageCropViewController.h */,
+				00CB5C3E17F8D51300587EAB /* GKImageCropViewController.m */,
+				00CB5C3F17F8D51300587EAB /* GKImagePicker.h */,
+				00CB5C4017F8D51300587EAB /* GKImagePicker.m */,
+				00CB5C4117F8D51300587EAB /* GKResizeableCropOverlayView.h */,
+				00CB5C4217F8D51300587EAB /* GKResizeableCropOverlayView.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +363,17 @@
 				00CB5C0E17F8964900587EAB /* blue_buck.jpg in Resources */,
 				00CB5C1017F8970A00587EAB /* BeerCell.xib in Resources */,
 				00CB5C2817F8A04F00587EAB /* no_beer.png in Resources */,
-				00CB5C2D17F8A30D00587EAB /* beer.db in Resources */,
+				00CB5C3517F8C7D300587EAB /* beer.db in Resources */,
+				00CB5C5317F8D76900587EAB /* PLCameraSheetButton.png in Resources */,
+				00CB5C5417F8D76900587EAB /* PLCameraSheetButton@2x.png in Resources */,
+				00CB5C5517F8D76900587EAB /* PLCameraSheetButtonPressed.png in Resources */,
+				00CB5C5617F8D76900587EAB /* PLCameraSheetButtonPressed@2x.png in Resources */,
+				00CB5C5717F8D76900587EAB /* PLCameraSheetDoneButton.png in Resources */,
+				00CB5C5817F8D76900587EAB /* PLCameraSheetDoneButton@2x.png in Resources */,
+				00CB5C5917F8D76900587EAB /* PLCameraSheetDoneButtonPressed.png in Resources */,
+				00CB5C5A17F8D76900587EAB /* PLCameraSheetDoneButtonPressed@2x.png in Resources */,
+				00BE698918024E98007A2740 /* pint_glass_114.png in Resources */,
+				00BE698B18024EC8007A2740 /* pint_glass_57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +394,12 @@
 				00CB5C2117F89EEF00587EAB /* FMDatabase.m in Sources */,
 				00CB5C2617F89EEF00587EAB /* FMResultSet.m in Sources */,
 				00CB5C3317F8AA8B00587EAB /* FMDBDataAccess.m in Sources */,
+				00CB5C4317F8D51300587EAB /* GKCropBorderView.m in Sources */,
+				00CB5C4417F8D51300587EAB /* GKImageCropOverlayView.m in Sources */,
+				00CB5C4517F8D51300587EAB /* GKImageCropView.m in Sources */,
+				00CB5C4617F8D51300587EAB /* GKImageCropViewController.m in Sources */,
+				00CB5C4717F8D51300587EAB /* GKImagePicker.m in Sources */,
+				00CB5C4817F8D51300587EAB /* GKResizeableCropOverlayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

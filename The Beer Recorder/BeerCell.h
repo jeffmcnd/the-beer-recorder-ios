@@ -10,7 +10,7 @@
 
 @interface BeerCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *picture;
-@property (strong, nonatomic) IBOutlet UILabel *beerName;
+@property (strong, nonatomic) IBOutlet UIImageView * picture;
+@property (strong, nonatomic) IBOutlet UILabel * beerName;
 
 @end

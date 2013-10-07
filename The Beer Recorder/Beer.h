@@ -10,7 +10,7 @@
 
 @interface Beer : NSObject
 
-@property (nonatomic) float beerId;
+@property (nonatomic) int beerId;
 @property (nonatomic, strong) NSString * brewerName;
 @property (nonatomic, strong) NSString * beerName;
 @property (nonatomic) float appearance;
