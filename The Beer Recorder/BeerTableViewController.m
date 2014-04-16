@@ -97,6 +97,13 @@
     if(editingStyle == UITableViewCellEditingStyleDelete) {
         Beer * beer = _beers[indexPath.row];
         
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *path = [DOC_DIR stringByAppendingPathComponent:[NSString stringWithFormat:@"beer%d", beer.beerId]];
+        
+        if([fileManager fileExistsAtPath:path]) {
+            [fileManager removeItemAtPath:path error:nil];
+        }
+        
         FMDBDataAccess * db = [[FMDBDataAccess alloc] init];
         
         if([db deleteBeer:beer]) {
