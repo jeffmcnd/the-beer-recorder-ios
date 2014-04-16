@@ -63,8 +63,8 @@
 		008D0CAB17F88C500045BDA6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		008D0CAD17F88C500045BDA6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		008D0CB017F88C500045BDA6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		00BE698818024E98007A2740 /* pint_glass_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pint_glass_114.png; sourceTree = "<group>"; };
-		00BE698A18024EC8007A2740 /* pint_glass_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pint_glass_57.png; sourceTree = "<group>"; };
+		00BE698818024E98007A2740 /* pint_glass_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pint_glass_114.png; path = ../pint_glass_114.png; sourceTree = "<group>"; };
+		00BE698A18024EC8007A2740 /* pint_glass_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pint_glass_57.png; path = ../pint_glass_57.png; sourceTree = "<group>"; };
 		00CB5BFE17F88E5100587EAB /* BeerPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerPageViewController.h; sourceTree = "<group>"; };
 		00CB5BFF17F88E5100587EAB /* BeerPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerPageViewController.m; sourceTree = "<group>"; };
 		00CB5C0117F88E6400587EAB /* BeerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerTableViewController.h; sourceTree = "<group>"; };
@@ -127,8 +127,6 @@
 		008D0C8B17F88C500045BDA6 = {
 			isa = PBXGroup;
 			children = (
-				00BE698A18024EC8007A2740 /* pint_glass_57.png */,
-				00BE698818024E98007A2740 /* pint_glass_114.png */,
 				008D0C9D17F88C500045BDA6 /* The Beer Recorder */,
 				00CB5C1517F89EE300587EAB /* FMDB */,
 				00CB5C3617F8D50600587EAB /* GKImagePicker */,
@@ -223,6 +221,8 @@
 		00CB5C0C17F8964100587EAB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				00BE698A18024EC8007A2740 /* pint_glass_57.png */,
+				00BE698818024E98007A2740 /* pint_glass_114.png */,
 				00CB5C0D17F8964900587EAB /* blue_buck.jpg */,
 				00CB5C2717F8A04F00587EAB /* no_beer.png */,
 			);
@@ -437,6 +437,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jeffrey McNally-Dawes (2C9EVC96X4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -469,6 +470,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jeffrey McNally-Dawes (2C9EVC96X4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

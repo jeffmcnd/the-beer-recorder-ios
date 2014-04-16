@@ -17,19 +17,10 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    [_comment setDelegate:self];
-    [_brewerName setDelegate:self];
-    
     CGRect screen = [[UIScreen mainScreen] applicationFrame];
     
-//    rect.origin.y += self.navigationController.navigationBar.frame.size.height;
-//    rect.size.height -= self.navigationController.navigationBar.frame.size.height;
-    
-    CGFloat navHeight = self.navigationController.navigationBar.frame.size.height;
-    
-//    [self.view setFrame:rect];
-    [_beerSV setFrame:CGRectMake(0, navHeight, screen.size.width, screen.size.height - navHeight)];
-    [_beerSV setContentSize:_container.frame.size];
+    _beerSV.frame = CGRectMake(0, 0, screen.size.width, screen.size.height + 20);
+    _beerSV.contentSize = _container.frame.size;
     
     UITapGestureRecognizer * viewTap = [[UITapGestureRecognizer alloc]
                                         initWithTarget:self
@@ -37,8 +28,12 @@
     [_container addGestureRecognizer:viewTap];
     
     UIImage * img = [UIImage imageWithContentsOfFile:[DOC_DIR stringByAppendingPathComponent:[NSString stringWithFormat:@"beer%d", _beer.beerId]]];
-    if(img == nil) [_picture setImage:[UIImage imageNamed:@"no_beer"]];
-    else [_picture setImage:img];
+    
+    if(img == nil) {
+        img = [UIImage imageNamed:@"no_beer.png"];
+    }
+    
+    [_picture setImage:img];
     
     [_navItem setTitle:_beer.beerName];
     [_brewerName setText:_beer.brewerName];
@@ -49,6 +44,14 @@
     [_flavourSlider setValue:_beer.flavour];
     [_overallSlider setValue:_beer.overall];
     [_comment setText:_beer.comment];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardSize:) name:UIKeyboardDidShowNotification object:nil];
+}
+
+- (void)keyboardSize:(NSNotification*)notification {
+    NSDictionary* keyboardInfo = [notification userInfo];
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    keyboardHeight = [keyboardFrameBegin CGRectValue].size.height;
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -66,18 +69,15 @@
 }
 
 -(IBAction)chooseImage:(id)sender {
-//    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-//                                  initWithTitle:nil
-//                                  delegate:self
-//                                  cancelButtonTitle:@"Cancel"
-//                                  destructiveButtonTitle:nil
-//                                  otherButtonTitles:@"Camera", nil];
-//    actionSheet.actionSheetStyle = UIBarStyleBlackTranslucent;
-//    [actionSheet showFromToolbar:self.navigationController.toolbar];
-    UIImagePickerController * imagePicker = [[UIImagePickerController alloc] init];
-    [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    [imagePicker setDelegate:self];
-    [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+    NSLog(@"image size: %f, %f", _picture.frame.size.width, _picture.frame.size.height);
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:@"Cancel"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"Choose a Photo", @"Take a Photo", nil];
+    actionSheet.actionSheetStyle = UIBarStyleBlackTranslucent;
+    [actionSheet showFromToolbar:self.navigationController.toolbar];
 }
 
 # pragma mark Slider Actions
@@ -118,26 +118,28 @@
 # pragma mark Delegate Methods
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
-//    picker.delegate = self;
-//    switch(buttonIndex) {
-//        case 0: {
-//            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-//            [self presentViewController:picker animated:YES completion:nil];
-//            break;
-//        }
-//        default:
-//            break;
-//    }
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    switch(buttonIndex) {
+        case 0: {
+            _picker = [[GKImagePicker alloc] init];
+            [_picker setCropSize:CGSizeMake(_picture.frame.size.width, _picture.frame.size.height)];
+            [_picker setDelegate:self];
+            [self.navigationController presentViewController:_picker.imagePickerController animated:NO completion:nil];
+            break;
+        }
+        case 1: {
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:picker animated:YES completion:nil];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [self dismissViewControllerAnimated:YES completion:^{
-        _picker = [[GKImagePicker alloc] init];
-        [_picker setCropSize:CGSizeMake(320, 150)];
-        [_picker setDelegate:self];
-        [self.navigationController presentViewController:_picker.imagePickerController animated:NO completion:nil];
-    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     UIImage * img = [[UIImage alloc] init];
     
@@ -159,12 +161,26 @@
     [imagePicker.imagePickerController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    [_beerSV setContentOffset:CGPointMake(_beerSV.frame.origin.x, _brewerName.frame.origin.y)];
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    [textField resignFirstResponder];
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView {
-    [_beerSV setContentOffset:CGPointMake(_beerSV.frame.origin.x, _comment.frame.origin.y)];
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)textViewDidBeginEditing:(UITextView *)textView {
+    CGRect rect = _beerSV.frame;
+    rect.origin.y = -keyboardHeight;
+    _beerSV.frame = rect;
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView {
+    [textView resignFirstResponder];
+    CGRect rect = _beerSV.frame;
+    rect.origin.y = 0;
+    _beerSV.frame = rect;
 }
 
 @end

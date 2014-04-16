@@ -17,7 +17,7 @@ UIActionSheetDelegate,
 GKImagePickerDelegate,
 UITextFieldDelegate,
 UITextViewDelegate> {
-    
+    int keyboardHeight;
 }
 
 @property (strong, nonatomic) Beer * beer;
