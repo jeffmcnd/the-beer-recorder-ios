@@ -10,29 +10,29 @@
 	<string>The Beer Recorder</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0477605F-D502-45BA-8998-502D64B2680C</key>
+		<key>C296132A74570343AA5B6A3D7295FC84FF318324</key>
 		<string>https://github.com/jdawes/the-beer-recorder-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>The Beer Recorder.xcodeproj/project.xcworkspace</string>
+	<string>The Beer Recorder.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0477605F-D502-45BA-8998-502D64B2680C</key>
+		<key>C296132A74570343AA5B6A3D7295FC84FF318324</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/jdawes/the-beer-recorder-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0477605F-D502-45BA-8998-502D64B2680C</string>
+	<string>C296132A74570343AA5B6A3D7295FC84FF318324</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0477605F-D502-45BA-8998-502D64B2680C</string>
+			<string>C296132A74570343AA5B6A3D7295FC84FF318324</string>
 			<key>IDESourceControlWCCName</key>
 			<string>the-beer-recorder-ios</string>
 		</dict>

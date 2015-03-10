@@ -100,16 +100,24 @@
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSString *path = [DOC_DIR stringByAppendingPathComponent:[NSString stringWithFormat:@"beer%d", beer.beerId]];
         
+        // Delete image.
         if([fileManager fileExistsAtPath:path]) {
             [fileManager removeItemAtPath:path error:nil];
         }
         
         FMDBDataAccess * db = [[FMDBDataAccess alloc] init];
         
-        if([db deleteBeer:beer]) {
-            _beers = [db getBeers];
-            [self.tableView reloadData];
-        }
+        // Remove beer data from database.
+        [db deleteBeer:beer];
+        _beers = [db getBeers];
+        
+        // Remove cached UIImage.
+        NSMutableArray * mutableBeerPictures = [[NSMutableArray alloc] initWithArray:_beerPictures];
+        [mutableBeerPictures removeObjectAtIndex:indexPath.row];
+        _beerPictures = [[NSArray alloc] initWithArray:mutableBeerPictures];
+        
+        // Reload table.
+        [self.tableView reloadData];
     }
 }
 
